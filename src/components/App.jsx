@@ -65,8 +65,10 @@ export class App extends Component {
         <Section title="Phonebook">
           <ContactForm onAddContact={this.addContact} />
           <h2>Contacts</h2>
-          {visibleContacts.length > 1 && (
+          {visibleContacts.length > 0 ? (
             <Filter value={filter} onChangeFilter={this.onChangeFilter} />
+          ) :(
+            <div>Your phonebook is empty. Add first contact!</div>
           )}
           {visibleContacts.length > 0 && (
             <ContactList
